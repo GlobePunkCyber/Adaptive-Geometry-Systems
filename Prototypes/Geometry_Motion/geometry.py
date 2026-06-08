@@ -51,6 +51,20 @@ def calculate_curvature(points):
     ddx = np.gradient(dx)
     ddy = np.gradient(dy)
 
-    curvature = np.abs(dx * ddy - dy * ddx) / np.maximum((dx**2 + dy**2) ** 1.5, 1e-6)
+    curvature = np.abs(dx * ddy - dy * ddx) / np.maximum(
+        (dx**2 + dy**2) ** 1.5,
+        1e-6
+    )
 
     return curvature
+
+
+
+    return np.array(distances)
+
+
+def format_station(distance):
+    hundreds = int(distance // 100)
+    remainder = int(distance % 100)
+
+    return f"Sta {hundreds}+{remainder:02d}"

@@ -15,3 +15,12 @@ def simulate_vehicle(curvature):
         speeds.append(speed)
 
     return np.array(speeds)
+
+
+def calculate_risk(curvature, speeds):
+    curvature_risk = curvature * 1000
+    speed_risk = np.maximum(0, 55 - speeds) / 55
+
+    risk = curvature_risk + speed_risk
+
+    return risk
