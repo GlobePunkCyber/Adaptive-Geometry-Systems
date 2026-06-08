@@ -59,6 +59,13 @@ def calculate_curvature(points):
     return curvature
 
 
+def calculate_stationing(points):
+    distances = [0.0]
+
+    for i in range(1, len(points)):
+        dx = points[i, 0] - points[i - 1, 0]
+        dy = points[i, 1] - points[i - 1, 1]
+        distances.append(distances[-1] + np.hypot(dx, dy))
 
     return np.array(distances)
 
